@@ -3,9 +3,7 @@ import jieba
 import os
 from jieba import posseg
 
-'''
-流浪地球人物关系
-'''
+'''流浪地球人物关系'''
 
 
 class Earth(object):
@@ -62,7 +60,7 @@ class Earth(object):
                         # 两个人物共同出现 关系+1
                         self.relationships[name1][name2] += 1
 
-    # 写txt文件 用于网络图使用
+    # 写csv文件 用于网络图使用
     def generate_gephi(self):
         # 人物权重(节点)
         with codecs.open(os.path.abspath(os.curdir) + "/resources/earth_node.csv", "w", "gbk") as f:
@@ -83,5 +81,5 @@ if __name__ == "__main__":
     earth = Earth()
     earth.analyze_word()
     earth.analyze_relationship()
-    # earth.names_info()
-    earth.generate_gephi()
+    earth.names_info()
+    # earth.generate_gephi()
